@@ -16,20 +16,21 @@ function add (pokemon) {
 return {
     getAll: getAll,
     add: add
-};
+}
 })();
 
-document.write(pokemonRepository.getAll());
-
-function myLoopFunction(pokemon) {
-    document.write(pokemon.name + ' is ' + pokemon.height + ' mm, and their pokemon type is ' + pokemon.type + " <br/>");
-};
-
-
-pokemonList.forEach(myLoopFunction);
+pokemonRepository.getAll().forEach(function (pokemon) {
+document.write(
+pokemon.name + " is " + pokemon.height + " mm, and their pokemon type is " + pokemon.type + "</br>"
+);
+});
 
 
-/*for (let i=0;i <pokemonList.length; i++ ){
+pokemonList.forEach(myLoopFunction); 
+
+
+/* previous code, saving as a ref..
+for (let i=0;i <pokemonList.length; i++ ){
     if (pokemonList[i].height>1.1){
     document.write(pokemonList[i].name + '&nbsp;' + pokemonList[i].height + ' That is one big sleepy boy!'+ '<br/>');
 }else if(pokemonList[i].height<1.1){
