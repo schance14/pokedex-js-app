@@ -19,7 +19,7 @@ function add(pokemon) {
     }
   }
   function getAll() {
-    return pokemon;
+    return pokemonList;
   }
 function addListItem(pokemon){
     let pokemonList = document.querySelector('.pokemon-list');
@@ -28,7 +28,7 @@ function addListItem(pokemon){
     button.innerText = pokemon.name;
     button.classList.add('button-class');
     listpokemon.appendChild(button);
-    pokemonList.appendChild(listPokemon);
+    pokemonList.appendChild(listpokemon);
 
     button.addEventListener("click", function () {
       showDetails(pokemon);
@@ -38,8 +38,7 @@ function addListItem(pokemon){
 
 function showDetails(pokemon){
   const button = document.createElement('button');
-  console.log()
-
+  console.log(pokemon);
 }
 return {
     getAll: getAll,
@@ -59,7 +58,7 @@ message= "Here is a list of my favorite pokemon, enjoy!!";
 
 alert(message);
 
-pokemonList.forEach(myLoopFunction); 
+/*pokemonList.forEach(myLoopFunction); 
 
 
 
