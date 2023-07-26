@@ -5,6 +5,7 @@ let pokemonRepository = (function () {
     { name: 'Raichu', height: .8, type: 'electric'},
     { name: 'Ponyta', height: 1, type: 'fire'}
 ];
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 function add(pokemon) {
     if (
@@ -37,21 +38,55 @@ function addListItem(pokemon){
 }
 
 function showDetails(pokemon){
-  const button = document.createElement('button');
-  console.log(pokemon);
+  loadDetails(pokemon).then(function () {
+    console.log(pokemon);
+  });
 }
+
+function loadList() {
+  return fetch(apiUrl).then(function (response){
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url 
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
+
+function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.json();
+ }).then(function (details){
+  item.imageUrl = details.sprites.front_default;
+  item.height = details.height;
+  item.type = details.type;
+ }).catch(function (e){
+  console.error(e);
+ });
+}
+
 return {
     getAll: getAll,
     add: add,
     addListItem: addListItem, 
-    showDetails: showDetails
+    showDetails: showDetails,
+    loadList: loadList,
+    loadDetails: loadDetails
 }
 })();
 
+pokemonRepository.loadList().then(function(){
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
+  });
 });
-
 
 let message;
 message= "Here is a list of my favorite pokemon, enjoy!!";
