@@ -1,20 +1,15 @@
 let pokemonRepository = (function () {
 
-    let pokemonList = [
-    { name: 'Snorlax', height: 2.1, type: 'normal'},
-    { name: 'Raichu', height: .8, type: 'electric'},
-    { name: 'Ponyta', height: 1, type: 'fire'}
-];
+    let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 function add(pokemon) {
     if (
       typeof pokemon === "object" &&
       "name" in pokemon &&
-      "height" in pokemon &&
-      "types" in pokemon
+      "detailsUrl" in pokemon 
     ) {
-      pokemon.push(pokemon);
+      pokemonList.push(pokemon);
     } else {
       console.log("pokemon is not correct");
     }
