@@ -16,3 +16,11 @@
     border: 2px solid lightpink;
 
 }
+
+.modal {
+    display: none;
+}
+
+.modal.is-visible {
+    display: block;
+}
