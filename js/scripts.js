@@ -30,13 +30,29 @@ function addListItem(pokemon){
       showDetails(pokemon);
     });
 
+    button.innerText = pokemon.name;
+    listpokemon.appendChild(button);
+    pokemonListElement.appendChild(listpokemon);
+
 }
 
 function showDetails(pokemon){
-  loadDetails(pokemon).then(function () {
-    console.log(pokemon);
-  });
+  loadDetails(pokemon)
 }
+
+function showModal(pokemon) {
+
+  let modal = document.querySelector('.modal');
+  modal.innerText = pokemon.name;
+
+  let pokemonImage = document.querySelector('.pokemon.image');
+  pokemonImage.src = pokemon.imageUrl;
+
+  let pokemonHeight = document.querySelector('.pokemon-height');
+  pokemonHeight.innerText = 'Height : ' + (pokemon.height) + 'mm'; 
+}
+
+
 
 function loadList() {
   return fetch(apiUrl).then(function (response){
@@ -62,6 +78,7 @@ function loadDetails(item) {
   item.imageUrl = details.sprites.front_default;
   item.height = details.height;
   item.type = details.type;
+  showModal(item);
  }).catch(function (e){
   console.error(e);
  });
@@ -72,6 +89,7 @@ return {
     add: add,
     addListItem: addListItem, 
     showDetails: showDetails,
+    showModal: showModal,
     loadList: loadList,
     loadDetails: loadDetails
 }
