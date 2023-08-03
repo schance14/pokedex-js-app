@@ -6,7 +6,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 40px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
@@ -17,10 +17,19 @@
 
 }
 
-.modal {
+.pokemon-list{
+    text-align: center;
+}
+
+#modal-container {
     display: none;
 }
 
-.modal.is-visible {
-    display: block;
+#modal-container.is-visible {
+    position: fixed;
+    margin: auto;
+    display: grid;
+    text-align: center;
 }
+
+
