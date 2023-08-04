@@ -63,6 +63,12 @@ function loadDetails(item) {
   item.imageUrl = details.sprites.front_default;
   item.height = details.height;
   item.types = details.types;
+            if (details.types.length === 2) {
+                item.types[0] = details.types[0].type.name ;
+                item.types[1] = details.types[1].type.name;
+            } else {
+                item.types[0] = details.types[0].type.name;
+            }
   showModal(item);
  }).catch(function (e) {
   console.error(e);
@@ -95,6 +101,7 @@ function showModal(pokemon){
 
   let typesElement = document.createElement('p');
   typesElement.innerText = 'types: ' + pokemon.types;
+  console.log(pokemon.types);
 
   modal.appendChild(closeButtonElement);
   modal.appendChild(imageElement);
