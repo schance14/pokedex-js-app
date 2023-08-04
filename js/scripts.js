@@ -44,6 +44,8 @@ function loadList() {
     json.results.forEach(function (item) {
       let pokemon = {
         name: item.name,
+        height: item.height,
+        types: item.types,
         detailsUrl: item.url 
       };
       add(pokemon);
@@ -67,7 +69,7 @@ function loadDetails(item) {
  });
 }
 
-//modal
+//modal -->
 
 function showModal(pokemon){
   let modalContainer = document.querySelector('#modal-container');
@@ -89,7 +91,7 @@ function showModal(pokemon){
   imageElement.src = pokemon.imageUrl
 
   let contentElement = document.createElement('p');
-  contentElement.innerText = 'height: ' + pokemon.height;
+  contentElement.innerText = 'height: ' + pokemon.height + 'mm';
 
   let typesElement = document.createElement('p');
   typesElement.innerText = 'types: ' + pokemon.types;
@@ -155,9 +157,13 @@ window.addEventListener('keydown', (e)=> {
   }
  });  
 
+
+
+
+
+
+
 /*pokemonList.forEach(myLoopFunction); 
-
-
 
 
 /* previous code, saving as a ref..
