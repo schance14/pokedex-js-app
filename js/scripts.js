@@ -64,7 +64,7 @@ function loadDetails(item) {
   item.height = details.height;
   item.types = details.types;
             if (details.types.length === 2) {
-                item.types[0] = details.types[0].type.name ;
+                item.types[0] = details.types[0].type.name;
                 item.types[1] = details.types[1].type.name;
             } else {
                 item.types[0] = details.types[0].type.name;
