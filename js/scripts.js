@@ -106,6 +106,26 @@ function showModal(pokemon){
 
 }
 
+return {
+  getAll: getAll,
+  add: add,
+  addListItem: addListItem, 
+  showModal: showModal,
+  loadList: loadList,
+  loadDetails: loadDetails,
+  showDetails: showDetails
+};
+})();
+
+pokemonRepository.loadList().then(function(){
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
+});
+
+
+
+
  /* let modalContainer = document.querySelector('#modal-container');
 
   modalContainer.innerHTML = '';
@@ -147,25 +167,6 @@ function showModal(pokemon){
     } 
   });
 */
-
-
-
-return {
-    getAll: getAll,
-    add: add,
-    addListItem: addListItem, 
-    showModal: showModal,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
-  };
-})();
-
-pokemonRepository.loadList().then(function(){
-pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
-  });
-});
 
 
 
