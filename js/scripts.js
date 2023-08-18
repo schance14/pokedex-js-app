@@ -69,7 +69,7 @@ function loadDetails(item) {
   item.weight = details.weight; 
   item.types = details.types;
             if (details.types.length === 2) {
-                item.types[0] = details.types[0].type.name;
+                item.types[0] = details.types[0].type.name; 
                 item.types[1] = details.types[1].type.name;
             } else {
                 item.types[0] = details.types[0].type.name;
@@ -95,11 +95,11 @@ function showModal(pokemon){
   let imageElement= $('<img class= "modal-img" style= "width:50%">');
   imageElement.attr("src", pokemon.imageUrl);
 
-  let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
+  let heightElement = $("<p>" + "height: " + pokemon.height + "mm</p>");
 
-  let weightElement = $("<p>" + "weight : " + pokemon.weight + "mm</p>");
+  let weightElement = $("<p>" + "weight: " + pokemon.weight + "lbs</p>");
 
-  let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
+  let typesElement = $("<p>" + "types: " + pokemon.types + "</p>");
 
   modalTitle.append(nameElement);
   modalBody.append(imageElement);
