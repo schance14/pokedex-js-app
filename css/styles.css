@@ -20,7 +20,6 @@ body {
     border: 2px solid darkolivegreen;
     border-radius: 13px;
     text-transform: capitalize;
-
 }
 
 .pokemon-list{
@@ -55,12 +54,12 @@ body {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
-    background: yellowgreen;
     padding: 40px;
-    max-width: 700px;
+    max-width: 100%;
     text-align: center;
     border-radius: 10px;
     border: solid darkolivegreen;
+    align-self: center;
 }
 
 .modal-close {
@@ -87,8 +86,39 @@ body {
 }
 
 .modal-img {
-    width: 120px ;
-    height: 120px ;
+    width: auto;
+    height: 190px;
     margin-left: 10px;
-    margin-right: 0px ;
+    margin-right: 0px;
 }
+
+.modal-header {
+    background-color: blanchedalmond;
+}
+
+.modal-body {
+    background-color: blanchedalmond;
+}
+
+.modal-footer {
+    background-color: blanchedalmond;
+}
+.btn {
+    color: lightgoldenrodyellow;
+    background-color: rgb(83, 142, 88, 1);
+    border-color: rgb(99, 84, 72);
+}
+
+.btn:hover {
+    background-color: rgb(169, 199, 172);
+}
+
+div.pokedex {
+    max-width: 350px;
+    margin: auto;
+}
+
+nav {
+    background-color: blue;
+}
+
