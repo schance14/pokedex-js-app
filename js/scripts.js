@@ -19,7 +19,7 @@ function add(pokemon) {
   }
 
 function addListItem(pokemon){
-    let pokemonList = document.querySelector('.pokemon-list');
+    let pokemonList = document.querySelector('.list-group');
     let listpokemon = document.createElement('li');
     listpokemon.classList.add("list-group-item", "list-pokemon");
     let button = document.createElement('button');
@@ -48,6 +48,7 @@ function loadList() {
       let pokemon = {
         name: item.name,
         height: item.height,
+        weight: item.weight,
         types: item.types,
         detailsUrl: item.url 
       };
@@ -65,6 +66,7 @@ function loadDetails(item) {
  }).then(function (details){
   item.imageUrl = details.sprites.front_default;
   item.height = details.height;
+  item.weight = details.weight; 
   item.types = details.types;
             if (details.types.length === 2) {
                 item.types[0] = details.types[0].type.name;
@@ -95,7 +97,7 @@ function showModal(pokemon){
 
   let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
 
-  let weightElement = $("<p>" + "weight : " + pokemon.weight + "</p>");
+  let weightElement = $("<p>" + "weight : " + pokemon.weight + "mm</p>");
 
   let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
 
