@@ -66,7 +66,7 @@ function loadDetails(item) {
  }).then(function (details){
   item.imageUrl = details.sprites.front_default;
   item.height = details.height;
-  item.weight = details.weight; 
+  item.weight = details.weight;
   item.types = details.types;
             if (details.types.length === 2) {
                 item.types[0] = details.types[0].type.name; 
